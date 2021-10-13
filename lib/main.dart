@@ -5,7 +5,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: Scaffold(
-      backgroundColor: Colors.white24,
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Center(child: Text('DICE')),
         backgroundColor: Colors.black26,
@@ -24,6 +24,11 @@ class _DicePageState extends State<DicePage> {
   int leftDiceNum = 1;
   int rightDiceNum = 1;
 
+  void randomNumber() {
+    leftDiceNum = Random().nextInt(6) + 1;
+    rightDiceNum = Random().nextInt(6) + 1;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,7 +38,7 @@ class _DicePageState extends State<DicePage> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  leftDiceNum = Random().nextInt(6) + 1;
+                  randomNumber();
                 });
               },
               child: Image(
@@ -45,7 +50,7 @@ class _DicePageState extends State<DicePage> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  rightDiceNum = Random().nextInt(6) + 1;
+                  randomNumber();
                 });
               },
               child: Image(
